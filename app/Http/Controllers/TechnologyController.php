@@ -14,7 +14,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::all();
+        return view('resources.technologies.index', compact('technologies'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('resources.technologies.create');
     }
 
     /**
@@ -35,7 +36,20 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'logo' => 'required'
+        ]);
+
+        $technology = Technology::create($request->all());
+
+        if ($request->hasFile("logo")) {
+            $technology->logo = upload_file('logo', '/technologies');
+            $technology->save();
+        }
+
+        return redirect('/technologies');
     }
 
     /**
@@ -57,7 +71,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view("resources.technologies.edit", compact('technology'));
     }
 
     /**
@@ -69,7 +83,20 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'logo' => 'required',
+        ]);
+
+        $technology->update($request->input());
+        
+        if ($request->hasFile("logo")) {
+            $technology->logo = upload_file('logo', '/technologies');
+            $technology->save();
+        }
+
+        return redirect("/technologies");
     }
 
     /**
@@ -80,6 +107,7 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return redirect("/technologies");
     }
 }

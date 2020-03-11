@@ -14,7 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+        return view('resources.clients.index', compact('clients'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('resources.clients.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'website' => 'required',
+            'logo' => 'required',
+        ]);
+
+        $client = Client::create($request->all());
+
+        if ($request->hasFile('logo')) {
+            $client->logo = upload_file('logo', '/clients');
+            $client->save();
+        }
+
+        return redirect('/clients');
     }
 
     /**
@@ -57,7 +72,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('resources.clients.edit', compact('client'));
     }
 
     /**
@@ -69,7 +84,21 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'website' => 'required',
+            'logo' => 'required',
+        ]);
+
+        $client->update($request->all());
+
+        if ($request->hasFile('logo')) {
+            $client->logo = upload_file('logo', '/clients');
+            $client->save();
+        }
+
+        return redirect('/clients');
     }
 
     /**
@@ -80,6 +109,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect('/clients');
     }
 }

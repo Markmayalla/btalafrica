@@ -1,4 +1,5 @@
-<div class="container-fluid pt-5 pb-5" style="background: #ffffff">
+
+    <div class="container-fluid pt-5 pb-5">
         <div class="container pt-5 pb-5">
             <div class="row text-center">
                 <div class="col-md-12 pb-5">

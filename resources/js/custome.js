@@ -4,17 +4,22 @@ particlesJS.load('particles-js', 'assets/particles.json', function() {
 
   //Update Logo when position sticky is active
   $(window).scroll(function() {
-      var distance = $('#navbar_wrapper').offset().top;
+      var distance = $('#main-menu ').offset().top;
 
+    //   Checking if scroll is at the top
       if ($(this).scrollTop() >= distance) {
-          $('#navbar_wrapper').addClass("modifications_at_sticky");
-          $('#navbar_wrapper').removeClass("navbar-dark");
-          $('#navbar_wrapper').addClass("navbar-light");
-          $('#navbar_wrapper').addClass("py-5");
+          $('#main-menu #text_logo').show();
       } else {
-          $('#navbar_wrapper').removeClass("modifications_at_sticky");
-          $('#navbar_wrapper').removeClass("navbar-light");
-          $('#navbar_wrapper').addClass("navbar-dark");
-          $('#navbar_wrapper').removeClass("py-5");
+        $('#main-menu #text_logo').hide();
       }
+  });
+
+  $("#side_menu_open").click(() => {
+    $("#side_menu").removeClass("hide");
+    $("#overlay").removeClass("hide");
+  });
+
+  $("#side_menu_close").click(() => {
+    $("#side_menu").addClass("hide");
+    $("#overlay").addClass("hide");
   });

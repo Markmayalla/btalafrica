@@ -28,7 +28,9 @@ class ModifyColumnsToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->string('featured_image')->change();
+            $table->dropColumn("link");
+            $table->dropColumn("banner_image");
         });
     }
 }

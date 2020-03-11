@@ -14,7 +14,8 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        $people = Person::all();
+        return view('resources.people.index', compact('people'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('resources.people.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'surname' => 'required',
+            'position' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'description' => 'required',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'linkedin' => 'required',
+            'avatar' => 'required',
+        ]);
+
+        $person = Person::create($request->all());
+
+        if ($request->hasFile("avatar")) {
+            $url = upload_file('avatar','/pasports');
+            $person->avatar = $url;
+            $person->save();
+        }
+
+        return redirect('/people');
     }
 
     /**
@@ -57,7 +80,7 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        //
+        return view('resources.people.edit', compact("person"));
     }
 
     /**
@@ -69,7 +92,29 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'surname' => 'required',
+            'position' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'description' => 'required',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'linkedin' => 'required',
+            'avatar' => 'required',
+        ]);
+
+        $person->update($request->input());
+
+        if ($request->hasFile("avatar")) {
+            $url = upload_file('avatar','/pasports');
+            $person->avatar = $url;
+            $person->save();
+        }
+
+        return redirect('/people');
     }
 
     /**
@@ -80,6 +125,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        //
+        $person->delete();
+        return redirect('/people');
     }
 }

@@ -60,9 +60,30 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-12">
-                                <ul class="breadcrumb">
-                                    <li class="active"><a href="">Dashboard</a></li>
-                                </ul>
+
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @if (Request::segment(2) || Request::segment(1) !== 'home')
+                                            <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                                        @else
+                                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                        @endif
+
+                                        @php
+                                            $i = 1;
+                                        @endphp
+
+                                        @while (Request::segment($i) && Request::segment($i) !== 'home')
+                                           
+                                            @if (Request::segment($i+1))
+                                                <li class="breadcrumb-item"><a href="@for($z=1; $z <= $i; $z++) /{{ Request::segment($z) }} @endfor">{{ Request::segment($i++) }}</a></li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page">{{ Request::segment($i++) }}</li>
+                                            @endif
+
+                                        @endwhile
+                                    </ol>
+                                  </nav>
                 
                                 <div class="card">
                                     <div class="card-body">

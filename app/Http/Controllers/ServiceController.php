@@ -14,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('resources.services.index', compact('services'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('resources.services.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $service = Service::create($request->all());
+
+        if ($request->hasFile('featured_image')) {
+            $service->featured_image = upload_file('featured_image', '/services');
+            $service->save();
+        }
+
+        return redirect('/services');
     }
 
     /**
@@ -57,7 +69,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('resources.services.edit', compact('service'));
     }
 
     /**
@@ -69,7 +81,18 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $service->update($request->input());
+
+        if ($request->hasFile('featured_image')) {
+            $service->featured_image = upload_file('featured_image', '/services');
+            $service->save();
+        }
+
+        return redirect('/services');
     }
 
     /**
@@ -80,6 +103,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect('/services');
     }
 }

@@ -15,10 +15,29 @@ Route::get('/', function () {
     return view('web.home.index');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function () {
+    Route::resource('people', 'PersonController');
+    Route::resource('services', 'ServiceController');
+    Route::resource('clients', 'ClientController');
+    
+    
+    Route::post("/products/{product}/technologies", 'ProductController@syncTechnology');
+    Route::get("/products/{product}/technologies", 'ProductController@technologies');
+    Route::get("/products/{product}/images", 'ProductController@images');
     Route::resource('products', 'ProductController');
+
+    Route::resource('product_images', 'ProductImageController');
+    Route::resource('technologies', 'TechnologyController');
+    Route::resource('awards', 'AwardController');
+    Route::resource('settings', 'SettingController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'WebController@home')->name('Web');
+Route::get('/about', 'WebController@about')->name('about');
+Route::get('/team', 'WebController@team')->name('team');
+Route::get('/work', 'WebController@work')->name('work');
+Route::get('/contacts', 'WebController@contacts')->name('contacts');
