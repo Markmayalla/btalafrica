@@ -10,6 +10,9 @@
     @component('web.home.services', ['services' => $services])
     @endcomponent
 
+    @component('web.home.messaging') 
+    @endcomponent
+
     @component('web.home.gas') 
     @endcomponent
 

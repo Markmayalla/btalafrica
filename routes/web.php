@@ -39,5 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'WebController@home')->name('Web');
 Route::get('/about', 'WebController@about')->name('about');
 Route::get('/team', 'WebController@team')->name('team');
+Route::get('/sms', 'WebController@sms')->name('sms');
+Route::get('/lpg', 'WebController@lpg')->name('lpg');
 Route::get('/work', 'WebController@work')->name('work');
 Route::get('/contacts', 'WebController@contacts')->name('contacts');

@@ -19,6 +19,14 @@ class WebController extends Controller
         return view('web.about.index');
     }
 
+    public function sms() {
+        return view('web.sms.index');
+    }
+
+    public function lpg() {
+        return view('web.lpg.index');
+    }
+
     public function team() {
         $team = Person::all();
         return view('web.team.index', compact('team'));
