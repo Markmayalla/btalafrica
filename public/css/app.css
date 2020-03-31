@@ -11526,6 +11526,10 @@ a.text-dark:focus {
   display: none;
 }
 
+.owl-item {
+  height: 100%;
+}
+
 #member {
   -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -11533,6 +11537,7 @@ a.text-dark:focus {
 
 #member:hover {
   box-shadow: 0 0 5px;
+  cursor: pointer;
 }
 
 .large-header {

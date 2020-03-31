@@ -41,7 +41,7 @@
     </div>
 
 
-    <div class="container-fluid pt-5 pb-5" style="background: #ffffff">
+    {{-- <div class="container-fluid pt-5 pb-5" style="background: #ffffff">
         <div class="container pt-5 pb-5">
             <div class="row">
                 <div class="col-md-6">
@@ -55,6 +55,6 @@
                         <p class="lead">Deliver promotions and priority SMS notifications seamlessly, reliably and economically directly on your customer’s mobile devices.</p>
                     </div>
                 </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

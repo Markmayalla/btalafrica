@@ -23,3 +23,26 @@ particlesJS.load('particles-js', 'assets/particles.json', function() {
     $("#side_menu").addClass("hide");
     $("#overlay").addClass("hide");
   });
+
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    autoplay:true,
+    autoplayTimeout:5000,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:false
+        },
+        1000:{
+            items:4,
+            nav:true,
+            loop:false
+        }
+    }
+})

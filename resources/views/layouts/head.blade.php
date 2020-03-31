@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 @yield('body')
