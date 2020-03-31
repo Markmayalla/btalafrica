@@ -9,8 +9,8 @@
                     <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column text-center">
                        <h2>CONTACT US</h2>
                        <p>Dar es Salaam, Masaki. Oyster Pearl Galleria <br> M Floor, Office M009</p>
-                       <p>Tell: (255) 222 xxx xxxx <br>Mob: (255) 784 xxx xxxx</p>
-                       <p>info@breakthroughtechnologies.com</p>
+                       <p>Mob: <a href="tel:+255762883065" class="text-light">(255) 762 883 065</a></p>
+                       <p><a href="mailto:info@breakthroughtechnologies.com" class="text-light">info@breakthroughtechnologies.com</a></p>
                     </div>
                 </div>
             </div>

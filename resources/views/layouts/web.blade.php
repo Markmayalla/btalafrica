@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li><a href="/team">Team</a></li>
+                {{-- <li><a href="/team">Team</a></li> --}}
                 <li><a href="/work">Products</a></li>
                 <li><a href="/contact">Contacts</a></li>
             </ul>
@@ -29,7 +29,7 @@
                         <ul class="list-inline text-light m-0 d-none d-md-block">
                             <li class="list-inline-item py-3"><a class="text-light" href="/">Home</a></li>
                             <li class="list-inline-item py-3"><a class="text-light" href="/about">About</a></li>
-                            <li class="list-inline-item py-3"><a class="text-light" href="/team">Team</a></li>
+                            {{-- <li class="list-inline-item py-3"><a class="text-light" href="/team">Team</a></li> --}}
                             <li class="list-inline-item py-3"><a class="text-light" href="/work">Products</a></li>
                             <li class="list-inline-item py-3"><a class="text-light" href="/contacts">Contacts</a></li>
                         </ul>
@@ -44,12 +44,9 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <h4>CONTACT US</h4>
-                        <p>
-                            Dar es Salaam, Masaki. Oyster Pearl Galleria M Floor, Office M009 <br>
-                            Tel: (255) xxx xxx xxx<br>
-                            Mob: (255) xxx xxx xxx <br>
-                            info@breakthroughtechnologies.co.tz
-                        </p>
+                        <p>Dar es Salaam, Masaki. Oyster Pearl Galleria M Floor, Office M009 <br></p>
+                        <p>Mob: <a href="tel:+255762883065" class="text-light">(255) 762 883 065</a></p>
+                       <p><a href="mailto:info@breakthroughtechnologies.com" class="text-light">info@breakthroughtechnologies.com</a></p>
                     </div>
                     <div class="col">
                         <h4>BTAL</h4>
@@ -66,8 +63,8 @@
                     </div>
                     <div class="col-sm-3">
                         <h4>OPENING HOURS</h4>
-                        <p>Mon to Fri 8:00 am to 5:00 pm</p>
-                        <p>Sat 9:00 am to 1:30 pm</p>
+                        <p>Mon to Fri 8:00 am to 4:30 pm</p>
+                        <p>Closed at Sat and Sun</p>
                     </div>
                 </div>
             </div>

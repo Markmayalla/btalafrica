@@ -33,7 +33,8 @@ class WebController extends Controller
     }
 
     public function work() {
-        return view("web.work.index");
+        $products = Product::all();
+        return view("web.work.index", compact('products'));
     }
 
     public function blog() {

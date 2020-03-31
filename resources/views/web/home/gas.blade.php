@@ -8,7 +8,7 @@
                         <h1 class="text-uppercase text-accent">SMART METER</h1>
                         <p class="lead">We digitize the way gas is sold</p>
                         <p class="lead">Unlimited demand and never run out of gas 24/7 top up available via online, vouchers from dealers or through M-PESA, TIGOPESA, Airtel Money</p>
-                        <a href="" class="btn btn-link">Learn More</a>
+                        {{-- <a href="" class="btn btn-link">Learn More</a> --}}
                     </div>
                 </div>
                 <div class="col-md-6">
